@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title data-i18n="optTitle">Mastodon Bber Settings</title>
+  <style>
+    body { font-family: sans-serif; padding: 40px 20px; background-color: #f4f9fb; color: #333; margin: 0; }
+    .main-wrapper { display: flex; flex-wrap: wrap; gap: 30px; max-width: 850px; margin: 0 auto; align-items: flex-start; }
+    .panel { background: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(48, 121, 145, 0.08); border: 1px solid #dbeef5; flex: 1; min-width: 320px; box-sizing: border-box; }
+    h2 { margin-top: 0; color: #307991; font-size: 18px; border-bottom: 2px solid #e8f4f8; padding-bottom: 12px; margin-bottom: 20px; }
+    label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: bold; color: #555; }
+    input { width: 100%; padding: 10px; margin-bottom: 16px; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; transition: all 0.2s; }
+    input:focus { outline: none; border-color: #307991; box-shadow: 0 0 0 2px rgba(48, 121, 145, 0.15); }
+    .input-group { display: flex; margin-bottom: 16px; }
+    .input-group input { margin-bottom: 0; border-radius: 0 4px 4px 0; border-left: none; }
+    .input-group-addon { background-color: #e8f4f8; border: 1px solid #ddd; border-right: none; border-radius: 4px 0 0 4px; padding: 10px 12px; color: #307991; font-size: 14px; font-weight: bold; display: flex; align-items: center; user-select: none; }
+    .form-actions { display: flex; gap: 10px; margin-top: 4px; }
+    .btn { flex: 1; padding: 12px; cursor: pointer; color: white; border: none; border-radius: 4px; font-size: 14px; font-weight: bold; transition: background-color 0.2s; letter-spacing: 1px; }
+    #addBtn { background-color: #307991; }
+    #addBtn:hover { background-color: #6dc2df; }
+    #cancelBtn { background-color: #999; display: none; }
+    #cancelBtn:hover { background-color: #777; }
+    .account-item { display: flex; justify-content: space-between; align-items: center; background: #fdfdfd; padding: 12px 16px; border-radius: 6px; border: 1px solid #e4e4e4; margin-bottom: 12px; transition: border-color 0.2s; }
+    .account-item:hover { border-color: #dbeef5; }
+    .account-info { font-size: 13px; color: #333; }
+    .account-name { font-weight: bold; color: #307991; font-size: 14px; margin-bottom: 2px; }
+    .account-host { font-size: 12px; color: #888; }
+    .account-actions { display: flex; gap: 6px; }
+    .list-btn { padding: 6px 12px; color: white; font-size: 12px; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.2s; }
+    .edit-btn { background-color: #f0ad4e; }
+    .edit-btn:hover { background-color: #ec971f; }
+    .delete-btn { background-color: #d9534f; }
+    .delete-btn:hover { background-color: #c9302c; }
+    #status { font-size: 13px; color: #307991; text-align: center; margin-top: 12px; min-height: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  
+  <div class="main-wrapper">
+    <div class="panel">
+      <h2 id="formTitle" data-i18n="optAddTitle">Add Mastodon Account</h2>
+      
+      <label data-i18n="optNameLabel">Account Name</label>
+      <input type="text" id="accountName" data-i18n-placeholder="optNamePh">
+
+      <label data-i18n="optUrlLabel">Instance URL</label>
+      <div class="input-group">
+        <div class="input-group-addon">https://</div>
+        <input type="text" id="instanceUrl" data-i18n-placeholder="optUrlPh">
+      </div>
+      
+      <label data-i18n="optTokenLabel">Access Token</label>
+      <input type="password" id="accessToken" data-i18n-placeholder="optTokenPh">
+      
+      <div class="form-actions">
+        <button id="addBtn" class="btn" data-i18n="optAddBtn">Add Account</button>
+        <button id="cancelBtn" class="btn" data-i18n="optCancelBtn">Cancel</button>
+      </div>
+      <div id="status"></div>
+    </div>
+
+    <div class="panel">
+      <h2 data-i18n="optSavedTitle">Saved Accounts</h2>
+      <div id="accountList"></div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/options.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Mastodon Bber",
+  "version": "1.0.1",
+  "description": "A Chrome extension to quickly send Mastodon Toots.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Send Toot"
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "icons": {
+    "128": "elk.png"
+  }
+}

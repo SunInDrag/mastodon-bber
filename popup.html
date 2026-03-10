@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: sans-serif; width: 380px; padding: 12px; margin: 0; background-color: #ffffff; color: #333; }
+    #accountSelect { width: 100%; padding: 6px 8px; border-radius: 4px; border: 1px solid #ddd; font-size: 13px; cursor: pointer; outline: none; background: #fff; color: #333; margin-bottom: 8px; transition: border-color 0.2s; }
+    #accountSelect:focus { border-color: #307991; }
+    #cwInput { display: none; width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ddd; border-bottom: none; border-radius: 6px 6px 0 0; font-size: 13px; outline: none; background-color: #fdfaf0; color: #8a6d3b; transition: border-color 0.2s; }
+    #cwInput:focus { border-color: #307991; }
+    textarea { width: 100%; height: 120px; padding: 10px; box-sizing: border-box; resize: none; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; margin-bottom: 10px; transition: border-color 0.2s; }
+    textarea:focus { outline: none; border-color: #307991; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 4px; }
+    .tools-left { display: flex; gap: 6px; align-items: center; }
+    .icon-btn { flex-shrink: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 4px; transition: all 0.2s; fill: #888; color: #888; font-weight: bold; font-size: 13px; }
+    .icon-btn:hover { background-color: #e8f4f8; fill: #307991; color: #307991; }
+    .icon-btn.active { background-color: #e8f4f8; fill: #307991; color: #307991; }
+    .icon-btn svg { width: 20px; height: 20px; }
+    .visibility-select { padding: 4px; border-radius: 4px; border: 1px solid #ddd; font-size: 13px; cursor: pointer; outline: none; background: #fff; color: #333; height: 28px; transition: border-color 0.2s; }
+    .visibility-select:focus { border-color: #307991; }
+    #sendBtn { flex-shrink: 0; height: 28px; padding: 0 16px; background-color: #307991; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold; transition: background 0.2s; letter-spacing: 1px; }
+    #sendBtn:hover { background-color: #6dc2df; }
+    #sendBtn:disabled { background-color: #a0c9d6; cursor: not-allowed; }
+    .tag-list { display: none; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; background-color: #f4f9fb; padding: 8px; border-radius: 6px; border: 1px solid #dbeef5; }
+    .tag-item { background-color: #6dc2df; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 12px; cursor: pointer; user-select: none; transition: background-color 0.2s; }
+    .tag-item:hover { background-color: #307991; }
+    #msg { font-size: 12px; color: #307991; display: none; margin-top: 8px; text-align: center; }
+    .error { color: #d9534f !important; }
+    #mediaPreview { font-size: 12px; color: #307991; margin-bottom: 8px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  
+  <select id="accountSelect" data-i18n-title="popSwitchAcc"></select>
+  
+  <input type="text" id="cwInput" data-i18n-placeholder="popCwPh">
+
+  <textarea id="tootContent" data-i18n-placeholder="popTootPh"></textarea>
+  
+  <div id="mediaPreview"></div>
+  <div id="tagList" class="tag-list"></div>
+
+  <div class="toolbar">
+    <div class="tools-left">
+      <div id="tagsBtn" class="icon-btn" data-i18n-title="popTitleTags">
+        <svg viewBox="0 0 1024 1024"><path d="M171 341h682q43 0 43 43t-43 43H171q-43 0-43-43t43-43Z"/><path d="M423 85h4a39 39 0 0 1 38 43l-77 772a43 43 0 0 1-43 39h-4a39 39 0 0 1-38-43l77-772a43 43 0 0 1 43-39zm256 0h4a39 39 0 0 1 38 43l-77 772a43 43 0 0 1-43 39h-4a39 39 0 0 1-38-43l77-772a43 43 0 0 1 43-39z"/><path d="M171 597h682q43 0 43 43t-43 43H171q-43 0-43-43t43-43Z"/></svg>
+      </div>
+      
+      <div id="getlinkBtn" class="icon-btn" data-i18n-title="popTitleUrl">
+        <svg viewBox="0 0 1024 1024"><path d="m600 697-1 1-94 76a198 198 0 0 1-280-30c-69-85-56-211 30-280l99-81-46-57-99 81a273 273 0 0 0 143 483 279 279 0 0 0 29 1c63 0 122-21 171-61l95-76-46-56-1-1zm256-464a273 273 0 0 0-383-40l-91 73 47 58 90-74a199 199 0 1 1 250 310l-96 77-1 1 46 57 97-78c56-46 92-111 99-184 9-72-12-143-58-200z"/><path d="m388 668 306-255 1-1-48-56-305 255h-2z"/></svg>
+      </div>
+      
+      <div id="cwBtn" class="icon-btn" data-i18n-title="popTitleCw">CW</div>
+
+      <div id="threadBtn" class="icon-btn" data-i18n-title="popTitleThread">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 17 4 12 9 7"></polyline>
+          <path d="M20 18v-2a4 4 0 0 0-4-4H4"></path>
+        </svg>
+      </div>
+      
+      <select id="visibility" class="visibility-select">
+        <option value="public" data-i18n="popVisPublic">Public</option>
+        <option value="unlisted" data-i18n="popVisUnlisted">Unlisted</option>
+        <option value="private" data-i18n="popVisPrivate">Private</option>
+        <option value="direct" selected data-i18n="popVisDirect">Direct</option>
+      </select>
+    </div>
+
+    <button id="sendBtn" data-i18n="popBtnSend">Toot !</button>
+  </div>
+  
+  <div id="msg"></div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>
