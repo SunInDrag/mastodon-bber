@@ -6,8 +6,8 @@ A Chrome extension for quickly posting to Mastodon with support for multiple acc
 
 mastodon-bber is a lightweight Chrome extension that lets you post to Mastodon directly from your browser. It focuses on quick posting, simple account switching, and tools that help you interact with your own posts more efficiently.
 
-<img width="608" height="416" alt="image" src="https://github.com/user-attachments/assets/23db27de-4947-45ed-b8ff-bd179a7aec66" />
-<img width="1345" height="711" alt="image" src="https://github.com/user-attachments/assets/f750cec3-5dd8-4f31-8daf-935c180e8cb4" />
+<img src="https://github.com/user-attachments/assets/23db27de-4947-45ed-b8ff-bd179a7aec66" width="304" />
+<img src="https://github.com/user-attachments/assets/f750cec3-5dd8-4f31-8daf-935c180e8cb4" width="304" />
 
 ## Features
 
@@ -19,6 +19,7 @@ mastodon-bber is a lightweight Chrome extension that lets you post to Mastodon d
 
 * **Content Warning (CW)**
   Add a Content Warning to your toot before posting.
+[LICENSE.txt](https://github.com/user-attachments/files/25866193/LICENSE.txt)
 
 * **Reply with Your Latest Extension Toot**
   Easily reply to a toot using the most recent toot you posted through the extension.
