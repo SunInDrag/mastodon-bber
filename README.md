@@ -19,7 +19,6 @@ mastodon-bber is a lightweight Chrome extension that lets you post to Mastodon d
 
 * **Content Warning (CW)**
   Add a Content Warning to your toot before posting.
-[LICENSE.txt](https://github.com/user-attachments/files/25866193/LICENSE.txt)
 
 * **Reply with Your Latest Extension Toot**
   Easily reply to a toot using the most recent toot you posted through the extension.
@@ -50,5 +49,8 @@ chrome://extensions
 5. Select the `mastodon-bber` project folder.
 
 The extension will now appear in your browser toolbar.
+
+## License
+Distributed under the MIT License. See [LICENSE](https://github.com/SunInDrag/mastodon-bber/blob/main/LICENSE) for more information.
 
 
